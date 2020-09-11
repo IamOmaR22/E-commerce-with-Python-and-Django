@@ -75,7 +75,7 @@ def processOrder(request):
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
     else:
-        
+        customer, order = guestOrder(request, data)
 
     total = float(data['form']['total'])
     order.transaction_id = transaction_id
